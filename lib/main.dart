@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
+import 'services/translate.dart';
 
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
+  final BaseTranslate translate = new Translate();
+
   @override
   Widget build(BuildContext context) {
+    translate.translate().then((res) => print(res));
+
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
