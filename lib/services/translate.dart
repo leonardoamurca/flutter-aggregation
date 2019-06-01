@@ -4,6 +4,8 @@ import 'package:html_unescape/html_unescape.dart';
 
 abstract class BaseTranslate {
   Future<Translation> translate({String targetLanguage, String text});
+  String translateLink(
+      {String sourceLanguage, String targetLanguage, String link});
 }
 
 class Translation {
@@ -32,6 +34,23 @@ class Translate implements BaseTranslate {
       final responseJson = json.decode(response.body);
 
       return Translation.fromJson(responseJson);
+    } catch (error) {
+      print('Failed to load post $error');
+      return null;
+    }
+  }
+
+  String translateLink(
+      {String sourceLanguage, String targetLanguage, String link}) {
+    try {
+      return 'https://translate.google.com/translate?sl=$sourceLanguage&tl=$targetLanguage&u=$link';
+
+      // final response = await http.get(
+      //     'https://translation.googleapis.com/language/translate/v2?format=html&target=$targetLanguage&q=$link&key=AIzaSyALscEwBIyfjApux0M62Z9Qvt3P4o_VrRY');
+
+      // final responseJson = json.decode(response.body);
+
+      // return Translation.fromJson(responseJson);
     } catch (error) {
       print('Failed to load post $error');
       return null;
