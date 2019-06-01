@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_aggregation/pages/home.dart';
+import 'package:flutter_aggregation/services/feed.dart';
 
 class CardItem extends StatefulWidget {
   CardItem({this.cardModel});
-  final FeedItem cardModel;
+  final FeedItemTranslate cardModel;
 
   @override
   State<StatefulWidget> createState() => _CardItem(cardModel: cardModel);
@@ -12,7 +13,7 @@ class CardItem extends StatefulWidget {
 
 class _CardItem extends State<CardItem> {
   _CardItem({this.cardModel});
-  final FeedItem cardModel;
+  final FeedItemTranslate cardModel;
   @override
   Widget build(BuildContext context) {
     return Hero(
@@ -35,8 +36,7 @@ class _CardItem extends State<CardItem> {
                 subtitle: Text(cardModel.link),
               ),
             ),
-          ]
-        )),
+          ])),
     );
   }
 }
