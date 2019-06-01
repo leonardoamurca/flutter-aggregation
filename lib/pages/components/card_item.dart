@@ -12,7 +12,10 @@ class CardItem extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: <Widget>[
         ListTile(
-            leading: const Icon(Icons.ac_unit), title: Text(cardModel.title))
+          leading: const Icon(Icons.ac_unit),
+          title: Text(cardModel.title),
+          subtitle: Text('Ola mundo'),
+        ),
       ],
     ));
   }

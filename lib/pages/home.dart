@@ -7,7 +7,7 @@ class Home extends StatelessWidget {
     var items = getMessages();
     return Scaffold(
       appBar: AppBar(
-        title: Text('Welcome to Flutter'),
+        title: Text('Flutter Aggregation'),
       ),
       body: Center(
         child: ListView.builder(
